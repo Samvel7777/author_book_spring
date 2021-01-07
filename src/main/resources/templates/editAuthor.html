@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EditAuthor</title>
+    <link href="/style.css" rel="stylesheet">
+</head>
+<body>
+
+<form action="/saveAuthor" method="post">
+    <div class="container">
+        <h1>Update Author</h1>
+        <p>Please fill in this form to update an account.</p>
+        <hr>
+
+        <input type="hidden" name="id" th:value="${author.id}">
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" th:value="${author.name}" name="name" id="name" required>
+
+        <label for="surname"><b>Surname</b></label>
+        <input type="text" th:value="${author.surname}" name="surname" id="surname" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="text" th:value="${author.email}" name="email" id="email" required>
+
+        <label for="gender"><b>Gender</b></label>
+        <select name="gender" id="gender" th:value="${author.gender.name()}">
+            <option value="FEMALE">MALE</option>
+            <option value="FEMALE">FEMALE</option>
+        </select>
+        <br><br>
+
+        <label for="bio"><b>Bio</b></label><br>
+        <textarea th:text="${author.bio}" name="bio" id="bio" required></textarea>
+        <hr>
+
+        <button type="submit" class="registerBtn">Update Author</button>
+    </div>
+</form>
+
+<a href="/author">Author Page</a>
+</body>
+</html>
